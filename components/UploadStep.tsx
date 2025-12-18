@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useCallback, ChangeEvent, DragEvent } from 'react';
+import { useStore } from '@/lib/store';
 
-interface UploadStepProps {
-  onUploadComplete: (content: string, filename?: string) => void;
-}
-
-export default function UploadStep({ onUploadComplete }: UploadStepProps) {
+export default function UploadStep() {
+  const { setSOWContent } = useStore();
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -91,7 +89,7 @@ export default function UploadStep({ onUploadComplete }: UploadStepProps) {
         }
 
         const data = await response.json();
-        onUploadComplete(data.content, data.filename);
+        setSOWContent(data.content, data.filename);
       } else if (uploadMode === 'text' && pastedText.trim()) {
         // Submit pasted text
         const response = await fetch('/api/upload', {
@@ -108,7 +106,7 @@ export default function UploadStep({ onUploadComplete }: UploadStepProps) {
         }
 
         const data = await response.json();
-        onUploadComplete(data.content, 'Pasted Text');
+        setSOWContent(data.content, 'Pasted Text');
       } else {
         setError('Please select a file or paste text to continue');
       }
