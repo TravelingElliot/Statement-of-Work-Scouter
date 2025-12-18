@@ -2,7 +2,7 @@
 
 A tool that analyzes Statement of Work (SOW) documents, asks clarifying questions, and searches GitHub for open-source repositories that could accelerate project delivery.
 
-**Live Demo**: [Coming soon - will be deployed to Netlify]
+**Live Demo**: https://sow-scouter.netlify.app/
 
 ## Features
 
@@ -380,4 +380,16 @@ Generic SOWs produce generic searches:
 **Problem**: Single broad query returned irrelevant results
 
 **Solution**: Multi-query strategy using project type + integrations + technical requirements, with deduplication across results
+
+### GitHub Description Data Quality
+
+**Problem**: Some repositories have auto-generated descriptions that concatenate all README sections, resulting in thousand-character descriptions that break card layouts
+
+**Solution**: Truncate descriptions to 400 characters in the UI while preserving full content for detail view
+
+### Irrelevant Repository Results
+
+**Problem**: Some repositories returned by GitHub search had zero overlap with SOW requirements, cluttering results
+
+**Solution**: Filter out repos where the LLM's coverage analysis returns an empty "covers" array or only fallback messages, ensuring all displayed results have meaningful relevance
 
