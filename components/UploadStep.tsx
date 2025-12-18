@@ -128,6 +128,47 @@ export default function UploadStep() {
         </p>
       </div>
 
+      {/* Example SOWs */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h3 className="font-medium text-blue-900 mb-2">Try Example SOWs</h3>
+        <p className="text-sm text-blue-700 mb-3">
+          Download and test with these sample Statements of Work
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="/examples/appointment-booking-system.txt"
+            download
+            className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            Appointment Booking System
+          </a>
+          <span className="text-gray-300">|</span>
+          <a
+            href="/examples/internal-crm.txt"
+            download
+            className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            Internal CRM
+          </a>
+          <span className="text-gray-300">|</span>
+          <a
+            href="/examples/event-registration-platform.txt"
+            download
+            className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            Event Registration Platform
+          </a>
+          <span className="text-gray-300">|</span>
+          <a
+            href="/examples/vague-requirements.txt"
+            download
+            className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            Vague Requirements
+          </a>
+        </div>
+      </div>
+
       {/* Mode Toggle */}
       <div className="flex gap-2 p-1 bg-gray-100 rounded-lg">
         <button

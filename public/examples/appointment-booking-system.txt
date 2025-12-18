@@ -1,0 +1,25 @@
+Statement of Work: Multi-Location Appointment Booking System
+
+The client requires a web-based appointment booking platform for a regional personal care business with 12 locations across the Midwest.
+
+The system should allow customers to:
+
+* Book, reschedule, and cancel appointments online
+* Select a preferred location, service, and staff member
+* Receive confirmation and reminder notifications via SMS and email
+
+Staff should be able to:
+
+* View daily schedules by location
+* Manage walk-in customers using a queue system
+* Block off time and manage availability
+
+The platform must support:
+
+* Multi-location configuration
+* Role-based access (admin, staff)
+* Google Calendar synchronization
+* SMS notifications using Twilio or equivalent
+* Mobile-friendly customer interface
+
+The client prefers a solution that can be deployed quickly and customized over time. Open-source solutions are acceptable. Hosting approach is not yet finalized.

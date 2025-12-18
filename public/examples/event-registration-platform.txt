@@ -1,0 +1,18 @@
+Statement of Work: Event Registration and Check-In Platform
+
+The client is organizing recurring in-person and virtual events with attendance ranging from 50 to 2,000 participants.
+
+The system should allow:
+
+* Online event registration
+* Ticketing (free and paid)
+* QR-code based check-in at events
+* Attendee email notifications
+
+Additional requirements:
+
+* Integration with Zoom for virtual events
+* Export attendee data as CSV
+* Admin dashboard for event management
+
+The client prioritizes speed to deployment over deep customization. Open-source or SaaS-like solutions that can be extended are preferred.
