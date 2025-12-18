@@ -111,7 +111,11 @@ export default function SearchResults() {
 
                 {/* Description */}
                 {repo.description && (
-                  <p className="text-gray-600 mb-4">{repo.description}</p>
+                  <p className="text-gray-600 mb-4">
+                    {repo.description.length > 400
+                      ? repo.description.slice(0, 400) + '...'
+                      : repo.description}
+                  </p>
                 )}
 
                 {/* Metadata */}

@@ -54,12 +54,22 @@ export async function POST(request: NextRequest) {
       })
     );
 
+    // Filter out repos that don't cover anything from the SOW
+    // Also exclude fallback/generic responses
+    const relevantRepos = analyzedRepos.filter(repo => {
+      if (!repo.covers || repo.covers.length === 0) return false;
+      // Exclude if only cover is the generic fallback message
+      if (repo.covers.length === 1 && repo.covers[0] === 'Similar functionality detected') return false;
+      return true;
+    });
+
     // Sort by coverage percentage
-    analyzedRepos.sort((a, b) => b.coveragePercentage - a.coveragePercentage);
+    relevantRepos.sort((a, b) => b.coveragePercentage - a.coveragePercentage);
 
     return NextResponse.json({
       success: true,
-      results: analyzedRepos.slice(0, 10),
+      results: relevantRepos.slice(0, 10),
+      message: relevantRepos.length === 0 ? 'No repositories found matching your requirements. Try refining your SOW or additional context.' : undefined,
     });
 
   } catch (error) {
@@ -108,7 +118,7 @@ async function searchGitHub(queries: string[]) {
   for (const query of queries) {
     try {
       const response = await octokit.search.repos({
-        q: `${query} stars:>100`,
+        q: `${query} stars:>0`,
         sort: 'stars',
         order: 'desc',
         per_page: 20,
