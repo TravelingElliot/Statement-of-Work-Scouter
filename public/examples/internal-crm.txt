@@ -1,0 +1,18 @@
+Statement of Work: Internal CRM for Small Sales Team
+
+We are seeking a lightweight CRM system to replace spreadsheets currently used by our sales team of approximately 15 users.
+
+Core functionality includes:
+
+* Lead and contact management
+* Deal tracking with configurable stages
+* Notes and activity logging per lead
+* Basic reporting (pipeline value, closed deals per month)
+
+Nice-to-have features:
+
+* Email integration (Gmail or Outlook)
+* User authentication with role permissions
+* Simple dashboard for management
+
+The system should be web-based and accessible internally. The client does not require a highly polished UI but values ease of use. Preference is for open-source software that can be self-hosted.
