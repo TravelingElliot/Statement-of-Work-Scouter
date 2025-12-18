@@ -3,6 +3,7 @@
 import { useStore } from '@/lib/store';
 import UploadStep from '@/components/UploadStep';
 import AnalysisStep from '@/components/AnalysisStep';
+import SearchResults from '@/components/SearchResults';
 
 export default function Home() {
   const { currentStep, reset } = useStore();
@@ -13,20 +14,7 @@ export default function Home() {
 
       {currentStep === 'analysis' && <AnalysisStep />}
 
-      {currentStep === 'results' && (
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold mb-4">Search Results</h2>
-          <p className="text-gray-600 mb-4">
-            This will show GitHub repo results
-          </p>
-          <button
-            onClick={reset}
-            className="mt-6 px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            Start Over
-          </button>
-        </div>
-      )}
+      {currentStep === 'results' && <SearchResults />}
 
       {currentStep === 'detail' && (
         <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
