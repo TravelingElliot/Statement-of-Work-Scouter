@@ -393,3 +393,9 @@ Generic SOWs produce generic searches:
 
 **Solution**: Filter out repos where the LLM's coverage analysis returns an empty "covers" array or only fallback messages, ensuring all displayed results have meaningful relevance
 
+### Repository Detail Loading State
+
+**Problem**: When clicking on a repository result, the detail view would display blank sections for "What This Repository Does", "Estimated Time Saved", "Recommended Modifications", and "Risks & Concerns" for several seconds while fetching detailed analysis from the API
+
+**Solution**: Added loading state initialization in `fetchDetailedInfo()` to set `isLoadingDetail: true` before the API call, triggering the existing loading spinner UI and preventing the above sections from showing up blank
+

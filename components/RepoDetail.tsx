@@ -24,6 +24,9 @@ export default function RepoDetail() {
   const fetchDetailedInfo = async () => {
     if (!selectedRepo) return;
 
+    setIsLoadingDetail(true);
+    setError(null);
+
     try {
       const response = await fetch('/api/repo-detail', {
         method: 'POST',
